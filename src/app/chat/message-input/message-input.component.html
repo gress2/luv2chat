@@ -1,0 +1,4 @@
+<form [formGroup]="messageForm" novalidate>
+  <input formControlName="message">
+  <button (click)="sendMessage()" type="button">Send</button>
+</form>

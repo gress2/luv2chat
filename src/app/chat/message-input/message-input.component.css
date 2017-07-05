@@ -1,0 +1,17 @@
+form {
+  border-top: 1px solid #dedede;
+  padding: 10px 0;
+}
+
+input {
+  font-size: 25px;
+  height: 40px;
+  margin: 0 3vw 0 15vw;
+  width: 70vw;
+}
+
+button {
+  font-size: 20px;
+  height: 30px;
+  width: 7vw;
+}
