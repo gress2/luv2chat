@@ -1,0 +1,8 @@
+<header>
+  <div>Welcome to Luv2Chat</div> 
+  <section>
+    <h4>Signed in as: {{ name }}</h4>
+    <button (click)="changeName(chatName.value)">Change Name</button>
+    <input #chatName>
+  </section>
+</header>
