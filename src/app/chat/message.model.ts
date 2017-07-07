@@ -1,7 +1,7 @@
 export class Message {
-  public date: string;
+  public date: number;
 
   constructor(public content: string, public author: string) {
-    this.date = (new Date()).toString();
+    this.date = Date.now();
   }
 }
