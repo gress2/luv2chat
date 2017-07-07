@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { Message } from '../message.model';
@@ -9,6 +9,7 @@ import { Message } from '../message.model';
   styleUrls: ['./message-input.component.css']
 })
 export class MessageInputComponent implements OnInit {
+  @Input() author: string;
   private messageForm: FormGroup;
 
   constructor() { 
@@ -26,9 +27,8 @@ export class MessageInputComponent implements OnInit {
 
   sendMessage(): void {
     // need to actually do something with this. for now, just console.log it
-    
     let msgContent: string = this.messageForm.value.message;
-    let msg: Message = new Message(msgContent, 'Collin');
+    let msg: Message = new Message(msgContent, this.author);
 
     console.log(msg);
     this.clearInput();

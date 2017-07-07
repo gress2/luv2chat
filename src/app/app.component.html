@@ -1,3 +1,3 @@
-<app-header></app-header>
-<app-chat></app-chat>
+<app-header (onNameChange)="onNameChange($event)"></app-header>
+<app-chat [author]="author"></app-chat>
 <app-footer></app-footer>

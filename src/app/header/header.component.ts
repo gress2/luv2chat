@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  @Output() onNameChange = new EventEmitter<string>();
   private name: string = 'Anonymous';
 
   constructor() { }
@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
 
   changeName(name: string) {
     if (name.length > 0) {
+      this.onNameChange.emit(name);
       this.name = name;
     }
   }

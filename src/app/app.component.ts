@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  author: string = 'Anonymous';
+
+  onNameChange(name: string) {
+    this.author = name; 
+  }
 }
