@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { Message } from '../message.model';
+import { MessagingService } from '../../messaging.service';
 
 @Component({
   selector: 'app-message-input',
@@ -12,7 +13,7 @@ export class MessageInputComponent implements OnInit {
   @Input() author: string;
   private messageForm: FormGroup;
 
-  constructor() { 
+  constructor(private msgSvc: MessagingService) { 
     this.messageForm = new FormGroup({
       message: new FormControl()
     });
@@ -26,11 +27,9 @@ export class MessageInputComponent implements OnInit {
   }
 
   sendMessage(): void {
-    // need to actually do something with this. for now, just console.log it
     let msgContent: string = this.messageForm.value.message;
     let msg: Message = new Message(msgContent, this.author);
-
-    console.log(msg);
+    this.msgSvc.postMessage(msg);
     this.clearInput();
   }
 }

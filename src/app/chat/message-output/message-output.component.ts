@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Message } from '../message.model';
+import { MessagingService } from '../../messaging.service';
 
 @Component({
   selector: 'app-message-output',
@@ -9,9 +10,15 @@ import { Message } from '../message.model';
 })
 export class MessageOutputComponent implements OnInit {
  
-  private messages: Array<Message> = [new Message('Hello!', 'Nobody')];
+  private messages: Array<Message> = [];
 
-  constructor() { }
+  constructor(msgSvc: MessagingService) { 
+    msgSvc.msgStream.subscribe((m: Message) => {
+      console.log(m);
+    }, (err) => {
+      console.log(err);
+    })
+  }
 
   ngOnInit() {
   }

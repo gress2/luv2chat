@@ -1,7 +1,7 @@
 export class Message {
-  public date: number;
-
-  constructor(public content: string, public author: string) {
-    this.date = Date.now();
+  constructor(public content: string, public author: string, public date?: number) {
+    if (typeof this.date === 'undefined') {
+      this.date = Date.now();
+    }
   }
 }
