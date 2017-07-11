@@ -12,9 +12,11 @@ export class MessageOutputComponent implements OnInit {
  
   private messages: Array<Message> = [];
 
-  constructor(msgSvc: MessagingService) { 
-    msgSvc.msgStream.subscribe((m: Message) => {
-      console.log(m);
+  constructor(private msgSvc: MessagingService) { 
+    this.msgSvc.msgStream.subscribe((m: Message) => {
+      if (m) {
+        this.messages.push(m);
+      }
     }, (err) => {
       console.log(err);
     })
